@@ -1,0 +1,45 @@
+{
+  "name": "json-bigint2",
+  "version": "2.0.0",
+  "description": "Maintained fork of json-bigint — JSON.parse/stringify with big-number support, native BigInt, TypeScript types",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib/parse.js",
+    "lib/stringify.js"
+  ],
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bybraveHQ/json-bigint2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bybraveHQ/json-bigint2/issues"
+  },
+  "homepage": "https://github.com/bybraveHQ/json-bigint2#readme",
+  "keywords": [
+    "JSON",
+    "bigint",
+    "bignumber",
+    "parse",
+    "stringify",
+    "json-bigint",
+    "typescript"
+  ],
+  "author": "bybrave (https://github.com/bybraveHQ)",
+  "contributors": [
+    "Andrey Sidorov <andrey.sidorov@gmail.com> (author of the original json-bigint)"
+  ],
+  "license": "MIT",
+  "funding": "https://ko-fi.com/bybrave",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.1.2"
+  }
+}
