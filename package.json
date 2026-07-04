@@ -11,7 +11,7 @@
     "lib/stringify.js"
   ],
   "scripts": {
-    "test": "node --test test/"
+    "test": "node --test test/*.test.js"
   },
   "repository": {
     "type": "git",
