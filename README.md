@@ -1,10 +1,10 @@
-# json-bigint2
+# @bybrave/json-bigint2
 
 [![CI](https://github.com/bybraveHQ/json-bigint2/actions/workflows/ci.yml/badge.svg)](https://github.com/bybraveHQ/json-bigint2/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/json-bigint2.svg)](https://www.npmjs.com/package/json-bigint2)
-[![node](https://img.shields.io/node/v/json-bigint2.svg?color=339933&logo=node.js&logoColor=white)](https://www.npmjs.com/package/json-bigint2)
+[![npm](https://img.shields.io/npm/v/@bybrave/json-bigint2.svg)](https://www.npmjs.com/package/@bybrave/json-bigint2)
+[![node](https://img.shields.io/node/v/@bybrave/json-bigint2.svg?color=339933&logo=node.js&logoColor=white)](https://www.npmjs.com/package/@bybrave/json-bigint2)
 [![types](https://img.shields.io/badge/types-included-3178C6?logo=typescript&logoColor=white)](index.d.ts)
-[![license](https://img.shields.io/npm/l/json-bigint2.svg?color=blue)](LICENSE)
+[![license](https://img.shields.io/npm/l/@bybrave/json-bigint2.svg?color=blue)](LICENSE)
 
 Maintained fork of [json-bigint](https://github.com/sidorares/json-bigint) — `JSON.parse` / `JSON.stringify` that preserve numbers beyond `Number.MAX_SAFE_INTEGER` instead of silently corrupting them.
 
@@ -12,13 +12,13 @@ Maintained fork of [json-bigint](https://github.com/sidorares/json-bigint) — `
 JSON.parse('{"id":9223372036854775807}').id
 // 9223372036854775806  ← corrupted
 
-require('json-bigint2')({ useNativeBigInt: true }).parse('{"id":9223372036854775807}').id
+require('@bybrave/json-bigint2')({ useNativeBigInt: true }).parse('{"id":9223372036854775807}').id
 // 9223372036854775807n ← exact
 ```
 
 ## Why this fork
 
-The original `json-bigint` has not been released since 2020, and the code published on npm is older than its master branch — several fixes were merged upstream but never shipped. `json-bigint2` is a drop-in replacement that ships the fixed code plus:
+The original `json-bigint` has not been released since 2020, and the code published on npm is older than its master branch — several fixes were merged upstream but never shipped. `@bybrave/json-bigint2` is a drop-in replacement that ships the fixed code plus:
 
 | Change | Upstream issue |
 |---|---|
@@ -33,13 +33,13 @@ The original `json-bigint` has not been released since 2020, and the code publis
 ## Install
 
 ```sh
-npm install json-bigint2
+npm install @bybrave/json-bigint2
 ```
 
 ## Usage
 
 ```js
-const JSONbig = require('json-bigint2')({ useNativeBigInt: true });
+const JSONbig = require('@bybrave/json-bigint2')({ useNativeBigInt: true });
 
 const payload = '{"id":9223372036854775807,"name":"deep"}';
 const data = JSONbig.parse(payload);
@@ -50,14 +50,14 @@ JSONbig.stringify(data);    // '{"id":9223372036854775807,"name":"deep"}'
 Without options, unsafe integers become [bignumber.js](https://github.com/MikeMcl/bignumber.js) instances (original behaviour):
 
 ```js
-const JSONbig = require('json-bigint2');
+const JSONbig = require('@bybrave/json-bigint2');
 JSONbig.parse('{"id":9223372036854775807}').id.toFixed(); // '9223372036854775807'
 ```
 
 TypeScript:
 
 ```ts
-import JSONbig = require('json-bigint2');
+import JSONbig = require('@bybrave/json-bigint2');
 
 const parser = JSONbig({ useNativeBigInt: true, objectProto: true });
 const data = parser.parse(payload);
@@ -86,7 +86,7 @@ It is a drop-in replacement:
 
 ```diff
 - const JSONbig = require('json-bigint')({ useNativeBigInt: true });
-+ const JSONbig = require('json-bigint2')({ useNativeBigInt: true });
++ const JSONbig = require('@bybrave/json-bigint2')({ useNativeBigInt: true });
 ```
 
 The only behavioural differences are the bug fixes listed above (strict number grammar may reject inputs that were never valid JSON, and parse errors are now `SyntaxError` instances).

@@ -1,5 +1,5 @@
 {
-  "name": "json-bigint2",
+  "name": "@bybrave/json-bigint2",
   "version": "2.0.0",
   "description": "Maintained fork of json-bigint — JSON.parse/stringify with big-number support, native BigInt, TypeScript types",
   "main": "index.js",
